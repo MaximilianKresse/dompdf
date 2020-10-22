@@ -111,6 +111,10 @@ class Text extends AbstractRenderer
             if (isset($cpdf_font["UnderlineThickness"])) {
                 $line_thickness = $size * ($cpdf_font["UnderlineThickness"] / 1000);
             }
+        } elseif ($this->_canvas instanceof SetaPDF_Adapter) {
+            $setapdfFont = $this->_canvas->getFont($font);
+            $underline_position = $setapdfFont->getUnderlinePosition() / 1000;
+            $line_thickness = $size * $setapdfFont->getUnderlineThickness() / 1000;
         }
 
         $descent = $size * $underline_position;

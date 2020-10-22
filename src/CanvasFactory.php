@@ -44,6 +44,10 @@ class CanvasFactory
             ) {
                 $class = "Dompdf\\Adapter\\PDFLib";
             }
+            
+            elseif ($backend === 'setapdf') {
+                $class = "Dompdf\\Adapter\\SetaPDF";
+            }
 
             else {
                 if ($backend === "gd" && extension_loaded('gd')) {
