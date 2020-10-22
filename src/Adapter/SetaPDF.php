@@ -4,7 +4,7 @@
  * @link    http://dompdf.github.com/
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
- 
+
 declare(strict_types=1);
 
 namespace Dompdf\Adapter;
@@ -23,13 +23,13 @@ use Dompdf\Helpers;
  * The coordinate origin is in the top left corner and y values
  * increase downwards.
  *
- * See {@link https://www.setasign.com/products/setapdf-core/details/} 
+ * See {@link https://www.setasign.com/products/setapdf-core/details/}
  * for more complete documentation on the underlying functions.
  *
  * Notes:
  * - pfb fonts are not supported
  * - we always use font subsetting and ignore the settings for this
- * 
+ *
  * @package dompdf
  */
 class SetaPDF implements Canvas
@@ -166,8 +166,8 @@ class SetaPDF implements Canvas
 
         $info = $this->document->getInfo();
         $info->setProducer(sprintf('%s + SetaPDF', $dompdf->version));
-        $info->setCreationDate(new DateTime());
-        $info->setModDate(new DateTime());
+        $info->setCreationDate(new \DateTime());
+        $info->setModDate(new \DateTime());
 
         $this->pageNumber = $this->pageCount = 1;
         $this->imageCache = [];
@@ -950,7 +950,7 @@ class SetaPDF implements Canvas
                 );
                 break;
 
-                // doesn't work because pdf files aren't a supported image type of dompdf
+            // doesn't work because pdf files aren't a supported image type of dompdf
 //            case 'pdf':
 //                $img_url = realpath($img_url);
 //                if (!array_key_exists($img_url, $this->imageCache)) {
@@ -1226,7 +1226,7 @@ class SetaPDF implements Canvas
                         );
                         break;
 
-                        // todo implement page_script?
+                    // todo implement page_script?
 //                    case "script":
 //                        if (!$eval) {
 //                            $eval = new PhpEvaluator($this);
